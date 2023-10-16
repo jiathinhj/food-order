@@ -1,38 +1,282 @@
-.App {
-  text-align: center;
+:root {
+  --primary-color: rgb(113, 33, 33);
+  --opacity-color: rgba(71, 16, 16, 0.793);
+  --background-color: #303030;
+  --shadow-color: #252525;
+  --hover-color: rgb(53, 12, 12);
+  --border-color: #aaaaaa91;
+  --text-color: #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background-color: var(--background-color);
+  font-size: 1.1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
+  position: sticky;
+  top: 0;
+  z-index: 9999999;
+}
+
+nav {
+  width: 100vw;
+  height: 80px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  background-color: var(--primary-color);
   color: white;
+  padding-inline: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+nav .brand {
+  font-size: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+nav .cart {
+  padding: 14px 24px;
+  background-color: var(--opacity-color);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  right: 1rem;
+}
+
+nav .cart:hover {
+  background-color: var(--hover-color);
+}
+
+.cart .cart-total-items {
+  background-color: var(--primary-color);
+  padding: 0.5rem 1.1rem;
+  border-radius: 20px;
+  font-weight: 700;
+}
+
+.banner-bg {
+  background: url('../public/assets/images/photo-1553025934-296397db4010.avif') no-repeat center center;
+  background-size: cover;
+  width: 120%;
+  height: 40vh;
+  /* transform: rotate(-5deg) translateY(-8rem) translateX(-2rem); */
+}
+
+.banner-content {
+  width: 90%;
+  height: 50%;
+  max-width: 45rem;
+  padding: 2rem;
+  margin-inline: auto !important;
+  border-radius: 20px;
+  background-color: var(--background-color);
+  box-shadow: 0 5px 5px var(--shadow-color);
+  color: white;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  margin-top: -15vh;
+}
+
+.banner-content h1 {
+  padding-bottom: 2rem;
+}
+
+.banner-content p {
+  padding-bottom: 1.5rem;
+}
+
+.meals {
+  width: 95%;
+  border-radius: 20px;
+  background-color: white;
+  padding: 1rem 2rem 2rem;
+  margin-inline: auto;
+  max-width: 60rem;
+}
+
+.meal {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.meal-name,
+.meal-ingredients,
+.meal-price {
+  padding-block: 10px;
+}
+
+.meal-price,
+.cart-item-price {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.quantifier {
+  text-align: right;
+  padding-block: 10px;
+}
+
+.quantity {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.quantity input {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  padding: 5px;
+  width: 3rem;
+}
+
+.btn-add {
+  margin-top: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 20px;
+}
+
+.btn-add:hover {
+  background-color: var(--hover-color);
+}
+
+button {
+  border: 1px solid transparent;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.5rem 2rem;
+}
+
+.modal {
+  position: relative;
+
+}
+
+.cart-modal dialog {
+  width: 80%;
+  margin-inline: auto;
+  top: 30vh;
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+  z-index: 999;
+  border: none;
+  position: fixed;
+  max-width: 45rem;
+}
+
+.cart-modal dialog ul {
+  list-style: none;
+  padding-left: 0 !important;
+
+}
+
+.cart-modal dialog li {
+  border-bottom: 2px solid var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.cart-modal dialog li:last-child {
+  margin-bottom: 2rem;
+}
+
+
+.cart-item-amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem 1rem 0;
+}
+
+.cart-item-price {
+  font-size: unset;
+  width: 9rem;
+}
+
+.cart-item-quantity {
+  border: 0.5px solid var(--border-color);
+  padding: 6px 12px;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.cart-item-btn button {
+  width: 3rem;
+  padding: 4px 1rem;
+  border-radius: 5px;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+
+.cart-item-btn button:first-child {
+  margin-right: 10px;
+}
+
+.cart-item-btn button:hover {
+  color: white;
+  background: var(--primary-color);
+}
+
+
+
+.cart-modal-footer .total-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-modal-btn {
+  text-align: right;
+  padding-top: 1.5rem;
+}
+
+.cart-modal-btn button {
+  border-radius: 20px;
+}
+
+.cart-modal-btn button:hover {
+  background-color: var(--hover-color);
+}
+
+.cart-modal-btn .btn-close {
+  margin-right: 1rem;
+  color: var(--primary-color);
+  background-color: transparent;
+  border-color: var(--primary-color);
+}
+
+.cart-modal-btn .btn-close:hover {
+  color: white;
+  border-color: transparent;
+}
+
+.cart-modal-btn .btn-order {
+  color: white;
+  background-color: var(--primary-color);
+}
+
+.cart-modal .backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--background-color);
+  opacity: 0.7;
+  z-index: 1;
 }
