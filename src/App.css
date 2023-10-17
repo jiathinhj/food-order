@@ -22,6 +22,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 9999999;
+  background-color: var(--primary-color);
+
 }
 
 nav {
@@ -30,9 +32,12 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--primary-color);
   color: white;
+  max-width: 80rem;
+  position: relative;
+  margin-inline: auto;
   padding-inline: 2rem;
+
 }
 
 nav .brand {
@@ -40,14 +45,20 @@ nav .brand {
 }
 
 nav .cart {
-  padding: 14px 24px;
+  padding: 12px 24px;
   background-color: var(--opacity-color);
   border-radius: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
   position: absolute;
-  right: 1rem;
+  right: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  nav .cart h3 {
+    display: none;
+  }
 }
 
 nav .cart:hover {

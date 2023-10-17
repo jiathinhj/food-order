@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, {  useState } from "react";
 import { BsCartFill } from "react-icons/bs";
 import CartModal from "./CartModal";
 import useCartContext from "../hooks/useCartContext";
