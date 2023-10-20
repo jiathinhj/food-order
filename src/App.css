@@ -75,7 +75,6 @@ nav .cart:hover {
 .banner-bg {
   background: url('../public/assets/images/photo-1553025934-296397db4010.avif') no-repeat center center;
   background-size: cover;
-  width: 120%;
   height: 40vh;
   /* transform: rotate(-5deg) translateY(-8rem) translateX(-2rem); */
 }
@@ -176,20 +175,24 @@ button {
 }
 
 .cart-modal dialog {
-  width: 80%;
+  width: 90%;
   margin-inline: auto;
-  top: 30vh;
+  top: 20vh;
   border-radius: 1rem;
   padding: 2rem 1rem;
   z-index: 999;
   border: none;
   position: fixed;
   max-width: 45rem;
+  max-height: 70vh;
+
 }
 
 .cart-modal dialog ul {
   list-style: none;
   padding-left: 0 !important;
+  max-height: 40vh;
+  overflow: auto;
 
 }
 
@@ -211,23 +214,24 @@ button {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1rem 1rem 0;
+  column-gap: 1rem;
 }
 
 .cart-item-price {
   font-size: unset;
-  width: 9rem;
+  width: 8rem;
 }
 
 .cart-item-quantity {
   border: 0.5px solid var(--border-color);
-  padding: 6px 12px;
+  padding: 0.5rem 0.8rem;
   font-weight: 700;
   border-radius: 5px;
 }
 
 .cart-item-btn button {
   width: 3rem;
-  padding: 4px 1rem;
+  padding: 0.25rem 1rem;
   border-radius: 5px;
   border-color: var(--primary-color);
   color: var(--primary-color);
@@ -236,7 +240,7 @@ button {
 
 
 .cart-item-btn button:first-child {
-  margin-right: 10px;
+  margin-right: 0.6rem;
 }
 
 .cart-item-btn button:hover {
@@ -249,6 +253,7 @@ button {
 .cart-modal-footer .total-price {
   display: flex;
   justify-content: space-between;
+  color: var(--primary-color);
 }
 
 .cart-modal-btn {
@@ -282,7 +287,7 @@ button {
 }
 
 .cart-modal .backdrop {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -290,4 +295,6 @@ button {
   background: var(--background-color);
   opacity: 0.7;
   z-index: 1;
+  width: 100vw;
+  height: 100vh;
 }
